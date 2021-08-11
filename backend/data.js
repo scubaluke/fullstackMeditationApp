@@ -1,38 +1,38 @@
 const data = [
     {
         pageName: 'home',
-        title: 'welcome',
-        Page1: 'meditation is great',
-        page2: 'relax and read the following',
-        mantras: [
-        'scroll', 'breath in', 'breath out', 'scroll'
+       content: [
+            {title: 'breath in', img: '../images/greylogo.png', subTitle: 'sub title'},
+            {directions: 'breath out', img: '../images/greylogo.png'},
+            {title: 'relax', img: '../images/greylogo.png'},
+            {title: 'scroll', img: '../images/greylogo.png'}
         ]
     },
     {
         pageName: 'fear',
-        title: 'fear',
-        Page1: 'meditation is great',
-        page2: 'relax and read the following',
-        mantras: [
-        'scroll', 'breath in', 'breath out', 'scroll'
+      content: [
+            {title: 'fear', img: '../images/greylogo.png', subTitle: 'sub title'},
+            {directions: 'breath out', img: '../images/greylogo.png'},
+            {title: 'relax', img: '../images/greylogo.png'},
+            {title: 'scroll', img: '../images/greylogo.png'}
         ]
     },
     {
         pageName: 'nsfw',
-        title: 'nsfw',
-        Page1: 'meditation is great',
-        page2: 'relax and read the following',
-        mantras: [
-        'scroll', 'breath in', 'breath out', 'scroll'
+       content: [
+            {title: 'NSFW', img: '../images/greylogo.png', subTitle: 'sub title'},
+            {directions: 'breath out', img: '../images/greylogo.png'},
+            {title: 'relax', img: '../images/greylogo.png'},
+            {title: 'scroll', img: '../images/greylogo.png'}
         ]
     },
     {
         pageName: 'affirmations',
-        title: 'affirmations',
-        Page1: 'meditation is great',
-        page2: 'relax and read the following',
-        mantras: [
-        'scroll', 'breath in', 'breath out', 'scroll'
+        content: [
+            {title: 'affirmations', img: '../images/greylogo.png', subTitle: 'sub title'},
+            {directions: 'breath out', img: '../images/greylogo.png'},
+            {title: 'relax', img: '../images/greylogo.png'},
+            {title: 'scroll', img: '../images/greylogo.png'}
         ]
     }
 ]
