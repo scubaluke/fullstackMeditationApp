@@ -1,7 +1,11 @@
-const express = require('express');
-require('dotenv').config();
-const data = require('./data');
-// const home = require('./data');
+import express from 'express';
+import dotenv from 'dotenv'
+import 'colors'
+import connectDB from './config/db.js';
+import data from './data.js';
+
+dotenv.config();
+connectDB()
 const app = express()
 
 app.get('/', (req, res) => {
@@ -19,5 +23,6 @@ app.get('/api/data/home', (req, res) => {
 app.get('/api/data/:page', (req, res) => {
     res.json(data[req.params.page])
 })
+const PORT = process.env.PORT || 5000
 
-app.listen(5000, console.log('server running on port 5000'))
+app.listen(PORT, console.log(`server running in ${process.env.NODE_ENV} port ${PORT}`.bgBlue.magenta))
