@@ -1,28 +1,28 @@
 const page = [
     {
-        pageName: 'Home',
+        pageName: 'home',
         pageContent: [  {
         pageTitle: 'Namagomeditate',
         img: '../images/mantra/1.jpg',
     },
    {
         directions: 'Just like any training meditation takes practice. As you go through this mantra, let go of the past, let go of the future. Breath into the now as you read each mantra',
-        img: '../images/greylogo.png',
-    },
-    {
-        mantra: 'Breathe in',
         img: '../images/mantra/2.jpg',
     },
     {
-        mantra: 'Breathe out',
+        mantra: 'Breathe in',
         img: '../images/mantra/3.jpg',
     },
     {
-        mantra: 'Breathe in',
+        mantra: 'Breathe out',
         img: '../images/mantra/4.jpg',
+    },
+    {
+        mantra: 'Breathe in',
+        img: '../images/mantra/5.jpg',
     },{
         mantra: 'Accept',
-        img: '../images/mantra/5.jpg',
+        img: '../images/mantra/555.jpg',
     },{
         mantra: 'Relax',
         img: '../images/mantra/55.jpg',
