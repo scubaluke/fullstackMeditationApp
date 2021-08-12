@@ -22,14 +22,28 @@ const contentSchema = mongoose.Schema({
 const pageSchema = mongoose.Schema({
      user: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        // required: true,
         ref: 'User'
     },
     pageName: {
         type: String,
         required: true
     },
-    pageContent: [contentSchema]
+    pageContent: [{
+          title: {
+        type: String,
+    },
+     directions: {
+        type: String,
+    },
+      img: {
+        type: String,
+        required: true,
+    },
+    subTitle: {
+        type: String,
+    }
+    }]
 }, {timestamps: true})
 
 

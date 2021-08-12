@@ -9,11 +9,14 @@
     "start": "node backend/server",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "data:import": "node backend/seedingData/seeder.js",
+    "data:destroy": "node backend/seedingData/seeder.js -d"
   },
   "author": "Luke Gartland",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "concurrently": "^6.2.1",
     "dotenv": "^10.0.0",
