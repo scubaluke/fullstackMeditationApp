@@ -10,7 +10,7 @@
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-      "data:import": "node backend/seedingData/seeder.js",
+    "data:import": "node backend/seedingData/seeder.js",
     "data:destroy": "node backend/seedingData/seeder.js -d"
   },
   "author": "Luke Gartland",
@@ -21,6 +21,7 @@
     "concurrently": "^6.2.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
     "mongoose": "^5.13.7",
     "nodemon": "^2.0.12"
   }

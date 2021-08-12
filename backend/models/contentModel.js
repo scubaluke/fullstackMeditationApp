@@ -1,23 +1,23 @@
 import mongoose from 'mongoose';
 
-const contentSchema = mongoose.Schema({
-    title: {
-        type: String,
-    },
-     directions: {
-        type: String,
-    },
-      img: {
-        type: String,
-        required: true,
-    },
-    subTitle: {
-        type: String,
-    },
+// const contentSchema = mongoose.Schema({
+//     title: {
+//         type: String,
+//     },
+//      directions: {
+//         type: String,
+//     },
+//       img: {
+//         type: String,
+//         required: true,
+//     },
+//     subTitle: {
+//         type: String,
+//     },
   
-}, {
-    timestamps: true
-})
+// }, {
+//     timestamps: true
+// })
 
 const pageSchema = mongoose.Schema({
      user: {
@@ -30,7 +30,7 @@ const pageSchema = mongoose.Schema({
         required: true
     },
     pageContent: [{
-          title: {
+          mantra: {
         type: String,
     },
      directions: {
@@ -40,9 +40,10 @@ const pageSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    subTitle: {
+    pageTitle: {
         type: String,
-    }
+    },
+    subTitle: String
     }]
 }, {timestamps: true})
 

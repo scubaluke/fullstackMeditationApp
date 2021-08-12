@@ -11,7 +11,7 @@ import products from './productSeeder.js'
 import mantras from './mantraSeeder.js';
 import Mantra from '../models/mantraModel.js';
 
-import { content, page } from './contentSeeder.js';
+import page from './contentSeeder.js';
 import Content from '../models/contentModel.js';
 
 // todo: product and mantras 
