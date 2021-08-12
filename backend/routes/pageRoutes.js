@@ -15,7 +15,7 @@ router.get('/', asyncHandler( async (req, res) => {
 
 router.get('/:page', asyncHandler( async (req, res) => {
     const content = await Content.findOne({ pageName: req.params.page })
-   
+   console.log(req.params);
     if(content) {
         res.json(content.pageContent)
     } else {
