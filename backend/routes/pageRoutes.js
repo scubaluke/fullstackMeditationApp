@@ -16,6 +16,7 @@ router.get('/', asyncHandler( async (req, res) => {
 // @route GET api/content/:page
 // @access public
 router.get('/:page', asyncHandler( async (req, res) => {
+    console.log(req.params.page);
     const content = await Content.findOne({ pageName: req.params.page })
     if(content) {
         res.json(content.pageContent)

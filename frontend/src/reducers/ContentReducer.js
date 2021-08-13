@@ -3,9 +3,9 @@ import { CONTENT_REQUEST, CONTENT_SUCCESS, CONTENT_FAIL } from '../constants/con
 export const contentReducer = (state = { content: [] }, action) => {
     switch (action.type) {
         case CONTENT_REQUEST:
-            return { loading: true, content: [] }
+            return { loading: true, mantras: [] }
         case CONTENT_SUCCESS:
-            return { loading: false, content: action.payload }
+            return { loading: false, mantras: action.payload }
         case CONTENT_FAIL:
             return { loading: false, error: action.payload }
         default:
