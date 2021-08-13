@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import CoreStyles from 'react-awesome-slider/src/core/styles.scss';
 import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss';
-import { listContent } from '../actions/contentActions'
 
 export default function Home({ match }) {
   const [content, setContent] = useState([])
-  // const dispatch = useDispatch()
-  // const content = useSelector(state => state.content)
-  // const {loading, error, mantras} = content
-  // console.log("content", content);
+
 
       useEffect(() => {
           const fetchData = async () => {
@@ -21,9 +16,7 @@ export default function Home({ match }) {
             setContent(data)
           }
         fetchData()
-        
-        // dispatch(listContent(match.url.substring(1)))
-        console.log('use effect ran');
+    
       }, [match])
 
          const renderPage = content.map((mantra, i) => {
