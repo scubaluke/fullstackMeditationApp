@@ -5,10 +5,12 @@ import connectDB from './config/db.js';
 
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import pageRoutes from './routes/pageRoutes.js'
+import UserRoutes from './routes/userRoutes.js'
 
 dotenv.config();
 connectDB()
 const app = express()
+app.use(express.json())
 
 
 app.get('/', (req, res) => {
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/content', pageRoutes)
+app.use('/api/users', UserRoutes)
 
 
 // error handler middleware
