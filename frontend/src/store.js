@@ -5,6 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { userLoginReducer } from './reducers/userReducers'
 import { contentReducer } from './reducers/ContentReducer'
 
+// data will always come from local storage (if in local storage)
+ const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
+ console.log(userInfoFromStorage);
+
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     content: contentReducer,
@@ -23,9 +27,7 @@ const store = createStore(
 
 export default store
 
-// data will always come from local storage (if in local storage)
- const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
- console.log(userInfoFromStorage);
+
 
 //  const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 
