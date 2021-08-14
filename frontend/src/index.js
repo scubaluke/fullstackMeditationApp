@@ -5,13 +5,14 @@ import store from '../src/store'
 import './style.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Root from './Root'
 
 ReactDOM.render(
-  <Provider store={store} >
+  <Root >
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </Provider>,
+  </Root>,
   document.getElementById('root')
 );
 
