@@ -1,46 +1,38 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { userDispatch, userSelector } from 'react-redux'
 // todo: build... Message, loader
-import Message from './Message'
-import Loader from './Loader'
+// import Message from 
+// import loader
 import { login } from '../actions/userActions'
-
 import FormContainer from './FormContainer'
 
 
 export default function Login({ location, history }) {
     const { Group, Label, Control } = Form
     const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
-    const dispatch = useDispatch()
+    const [reEnterPassword, setReEnterPassword] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
 
-    const userLogin = useSelector(state => state.userLogin)
-    const { loading, error, userInfo } = userLogin
-
-    const redirect = location.search ? location.search.split('=')[1] : '/'
-
-    useEffect(() => {
-        if(userInfo) {
-            history.push(redirect)
-        }
-       
-    }, [history, userInfo, redirect])
+    // const redirect = location.search ? location.search.split('=')[1] : '/'
 
     
     const submitHandler = (e) => {
         e.preventDefault()
+        if (password !== reEnterPassword) {
+            setErrorMessage('Passwords do not match')
+            return;
+        }
 
         //Dispatch
-        dispatch(login(email, password))
         console.log('submit');
     }
     return (
         <FormContainer>
             <h1>Sign In</h1>
-            {error && <Message variant='danger' >{error}</Message>}
-            {loading && <Loader /> }
             <Form onSubmit={submitHandler} >
                 <Group controlId='email' >
                     <Label>Email Address</Label>
@@ -49,6 +41,16 @@ export default function Login({ location, history }) {
                         placeholder='Enter Email' 
                         value={email} 
                         onChange={e => setEmail(e.target.value)} 
+                    ></Control>
+                </Group>
+
+                <Group controlId='phone' >
+                    <Label>Phone Number</Label>
+                    <Control 
+                        type='tel' 
+                        placeholder='Enter Phone Number' 
+                        value={phone} 
+                        onChange={e => setPhone(e.target.value)} 
                     ></Control>
                 </Group>
 
@@ -62,6 +64,15 @@ export default function Login({ location, history }) {
                     ></Control>
                 </Group>
 
+                  <Group controlId='reEnterPassword' >
+                    <Label>Re-enter Password</Label>
+                    <Control 
+                        type='password' 
+                        placeholder='Re-enter Password' 
+                        value={reEnterPassword} 
+                        onChange={e => setReEnterPassword(e.target.value)} 
+                    ></Control>
+                </Group>
                 <Button type='submit' variant='primary' >Sign In</Button>
             </Form>
 
