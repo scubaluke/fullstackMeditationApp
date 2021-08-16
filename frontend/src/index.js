@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// botswatch slate:
+import './bootstrap.min.css'
 import './style.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';

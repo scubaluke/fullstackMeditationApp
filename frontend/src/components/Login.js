@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import { userDispatch, userSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // todo: build... Message, loader
-// import Message from 
-// import loader
+import Message from './Message'
+import Loader from './Loader'
 import { login } from '../actions/userActions'
+
 import FormContainer from './FormContainer'
 
 
@@ -13,20 +14,33 @@ export default function Login({ location, history }) {
     const { Group, Label, Control } = Form
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    
+    const dispatch = useDispatch()
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { loading, error, userInfo } = userLogin
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
+
+    useEffect(() => {
+        if(userInfo) {
+            history.push(redirect)
+        }
+       
+    }, [history, userInfo, redirect])
 
     
     const submitHandler = (e) => {
         e.preventDefault()
 
         //Dispatch
+        dispatch(login(email, password))
         console.log('submit');
     }
     return (
         <FormContainer>
             <h1>Sign In</h1>
+            {error && <Message variant='danger' >{error}</Message>}
+            {loading && <Loader /> }
             <Form onSubmit={submitHandler} >
                 <Group controlId='email' >
                     <Label>Email Address</Label>
@@ -54,8 +68,8 @@ export default function Login({ location, history }) {
             <Row className='py-3' >
                 <Col>
                     NewCustomer? <Link 
-                        to={redirect ? `/register?redirect=${redirect}` : '/register'} 
-                        // to={'/register'} 
+                        // to={redirect ? `/register?redirect=${redirect}` : '/register'} 
+                        to={'/register'} 
 
                         >Register</Link>
                 </Col>

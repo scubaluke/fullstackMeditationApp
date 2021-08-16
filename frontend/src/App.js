@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 import RegisterUser from './components/RegisterUser'
 import Shop from './pages/Shop'
 import Home from './pages/Home';
+import Login from './components/Login';
 // import Fear from './pages/Fear';
 // import NSFW from './pages/NSFW';
 // import Affirmations from './pages/Affirmations';
@@ -17,7 +18,7 @@ export default function App() {
         <Route path='/affirmations' component={Home} />
         <Route path='/fear' component={Home} /> 
         <Route path='/nsfw' component={Home} />
-        <Route path='/store' component={Shop} />
+        <Route path='/store' component={Login} />
         <Route path='/register' component={RegisterUser} />
 
       </Layout>     
