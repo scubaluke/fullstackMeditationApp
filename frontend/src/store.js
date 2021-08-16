@@ -7,7 +7,6 @@ import { contentReducer } from './reducers/ContentReducer'
 
 // data will always come from local storage (if in local storage)
  const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
- console.log(userInfoFromStorage);
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
