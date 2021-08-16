@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Layout from './components/Layout'
-
+import RegisterUser from './components/RegisterUser'
 import Shop from './pages/Shop'
 import Home from './pages/Home';
 // import Fear from './pages/Fear';
@@ -18,6 +18,8 @@ export default function App() {
         <Route path='/fear' component={Home} /> 
         <Route path='/nsfw' component={Home} />
         <Route path='/store' component={Shop} />
+        <Route path='/register' component={RegisterUser} />
+
       </Layout>     
     </Router>
   )
