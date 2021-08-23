@@ -8,7 +8,6 @@ img{
   z-index: 200;
   right: 20px;
   top: 10px;
-
 }
 
 /* .modal {
@@ -20,4 +19,15 @@ img{
   /* display: none; */
   position: absolute;
   top: -20px;
+}
+@media (max-width: 580px) {
+  .modal-content {
+  background-color: #00000000;
+  border: none;
+  /* display: none; */
+  float: right;
+  margin-top: 20px;
+  /* position: absolute;
+  top: 20px; */
+}
 }
