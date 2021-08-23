@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap'
 // import { NavDropdown } from 'react-bootstrap';
 
 
-export default function NavLinks() {
+export default function NavLinks({handleClose}) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } =  userLogin
     const dispatch = useDispatch()
@@ -18,7 +18,7 @@ export default function NavLinks() {
     }
 
     return (
-        <div className='list-of-links'>
+        <div onClick={handleClose} className='list-of-links' >
            {userInfo && ( <div><h5>Welcome {userInfo.name.split(' ')[0]}</h5></div>)}
             <Link to="/home" className='link' >
                 Home
