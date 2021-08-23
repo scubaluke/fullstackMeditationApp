@@ -1,26 +1,33 @@
-.Hamburger {
+img{
   height: 50px;
   width: 50px;
-  background-color: rgb(56, 56, 56);
-  /* background-image: url(/img/greylogo.png); */
-  /* background-image: url("../../images/greylogo.png"); */
   border-radius: 5px;
+}
+.logo {
   position: absolute;
   z-index: 200;
   right: 20px;
   top: 10px;
 }
 
-.hamburger-dropdown {
-  display: none;
-  border-radius: 5px;
-  height: 50px;
+/* .modal {
+    border: 1px solid blue
+} */
+.modal-content {
+  background-color: #00000000;
+  border: none;
+  /* display: none; */
   position: absolute;
-  top: 5px;
-  right: 50px;
+  top: -20px;
 }
-img{
-  height: 50px;
-  width: 50px;
-  border-radius: 5px;
+@media (max-width: 580px) {
+  .modal-content {
+  background-color: #00000000;
+  border: none;
+  /* display: none; */
+  float: right;
+  margin-top: 20px;
+  /* position: absolute;
+  top: 20px; */
+}
 }
