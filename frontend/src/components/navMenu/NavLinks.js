@@ -19,7 +19,7 @@ export default function NavLinks({handleClose}) {
 
     return (
         <div onClick={handleClose} className='list-of-links' >
-           {userInfo && (        <h6 className='welcome' >Welcome {userInfo.name.split(' ')[0]}</h6>)}
+           {userInfo && (<h6 className='welcome' >Welcome {userInfo.name.split(' ')[0]}</h6>)}
             <Link to="/home" className='link' >
                 Home
             </Link>
@@ -32,7 +32,7 @@ export default function NavLinks({handleClose}) {
             <Link to="/nsfw" className='link' >
                 NSFW
             </Link>
-             <Link to="/store" className='link' >
+             <Link to="/shop" className='link' >
                 Store
             </Link>
               {/* {userInfo && ( <Button  className='link' onClick={logoutHandler} >Log Out</Button>)} */}

@@ -1,10 +1,10 @@
 import React from 'react'
-import Hamburger from './navMenu/Hamburger'
+import NavModal from './navMenu/NavModal'
 
 export default function Layout({ children }) {
     return (
         <>
-            <Hamburger/>
+            <NavModal />
             {children}
         </>
     )

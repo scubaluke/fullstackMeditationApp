@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Layout from './components/Layout'
 import RegisterUser from './components/RegisterUser'
-import Shop from './pages/Shop'
+import Shop from './pages/ShopPage'
 import Home from './pages/Home';
 import Login from './components/Login';
 // import Fear from './pages/Fear';
@@ -18,7 +18,7 @@ export default function App() {
         <Route path='/affirmations' component={Home} />
         <Route path='/fear' component={Home} /> 
         <Route path='/nsfw' component={Home} />
-        <Route path='/store' component={Login} />
+        <Route path='/shop' component={Shop} />
         <Route path='/register' component={RegisterUser} />
 
       </Layout>     
