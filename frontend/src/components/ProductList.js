@@ -1,10 +1,10 @@
 import React from 'react'
 import ProductCard from './ProductCard';
 import './css/ProductList.css'
+import Message from './Message';
 export default function ProductList({products}) {
-
      const renderProducts = products.map(product => {
-            return <ProductCard header={product.header} description={product.description} mantraListName={product.mantraListName} />
+            return <ProductCard key={product._id} header={product.header} description={product.description} mantraListName={product.mantraListName} />
         })
     return (
         <div className='product-list-container' >

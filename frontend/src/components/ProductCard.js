@@ -7,6 +7,7 @@ export default function ProductCard({description, mantraListName, header}) {
             <div className="card-body">
                 <h4 className="card-title">{mantraListName}</h4>
                 <p className="card-text">{description}</p>
+                <button type="button" className="btn btn-info btn-sm">Add to Cart</button>
             </div>
     </div>
     )
