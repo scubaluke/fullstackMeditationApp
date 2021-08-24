@@ -20,7 +20,6 @@ export default function App() {
         <Route path='/shop' component={ShopPage} />
         <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/register' component={RegisterUser} />
-
       </Layout>     
     </Router>
   )
