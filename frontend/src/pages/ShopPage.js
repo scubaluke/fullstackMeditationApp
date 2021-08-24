@@ -21,23 +21,9 @@ export default function ShopPage() {
        
    
     return (
-        //works!
-        // <div>
-        //     {/* <Login /> */}
-        //     {loading ? (<Loader />) : error ? (<Message variant='danger' >{error}</Message>) : data && (products.data.map(product => {
-        //     return <ProductCard title={product.name} description={product.description} />
-        // })
-        
-        // )}
-            
-        // </div>
-
-             <div>
+     <div>
             {/* <Login /> */}
-            {loading ? (<Loader />) : error ? (<Message variant='danger' >{error}</Message>) : data && <ProductList products={data} />
-        
-        }
-            
+            {loading ? (<Loader />) : error ? (<Message variant='danger' >{error}</Message>) : data && <ProductList products={data} />}
         </div>
     )
 }

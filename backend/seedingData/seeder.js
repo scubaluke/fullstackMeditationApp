@@ -25,15 +25,15 @@ const importData = async () => {
         await Content.deleteMany()
         await Content.insertMany(page)
 
-        // await Mantra.deleteMany()
-        // await Mantra.insertMany(mantras)
+        await Mantra.deleteMany()
+        await Mantra.insertMany(mantras)
         
-        // await Product.deleteMany()
-        // await Product.insertMany(products)
+        await Product.deleteMany()
+        await Product.insertMany(products)
 
-    //     await User.deleteMany()
-    //    const createdUsers = await User.insertMany(users)
-    //    const adminUser = createdUsers[0]._id
+        await User.deleteMany()
+       const createdUsers = await User.insertMany(users)
+       const adminUser = createdUsers[0]._id
 
         console.log('data imported'.green);
        process.exit()
