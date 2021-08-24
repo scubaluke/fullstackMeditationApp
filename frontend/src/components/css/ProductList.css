@@ -1,0 +1,19 @@
+.product-list-container {
+/* border: coral 1px solid; */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.product-list-header {
+
+}
+.products-container {
+    /* border: cornflowerblue solid 1px; */
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px 0;
+}

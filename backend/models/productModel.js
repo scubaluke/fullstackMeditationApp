@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
 
 const productSchema = mongoose.Schema({
-    name: {
+    header: {
         type: String,
         required: true
+    },
+    mantraListName: {
+        required: true,
+        type: String
     },
      image: {
         type: String,
