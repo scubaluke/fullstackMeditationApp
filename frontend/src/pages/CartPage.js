@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Fear() {
+export default function CartPage() {
     return (
         <div>
-            Fear!
+            Cart!
         </div>
     )
 }
