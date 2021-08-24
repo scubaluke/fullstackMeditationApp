@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { userLoginReducer } from './reducers/userReducers'
 import { contentReducer } from './reducers/ContentReducer'
+import { productReducer } from './reducers/productReducer'
 
 // data will always come from local storage (if in local storage)
  const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
@@ -11,6 +12,7 @@ import { contentReducer } from './reducers/ContentReducer'
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     content: contentReducer,
+    products: productReducer,
 })
 
 const middleware = [thunk]
