@@ -1,8 +1,13 @@
 import React from 'react'
+import { Route , withRouter} from 'react-router-dom';
 
-export default function ProductCard({description, mantraListName, header, productId}) {
+function ProductCard({description, mantraListName, header, productId, history}) {
+
     const addToCart = (e) => {
         console.log(e.target.attributes.product.nodeValue);
+        const productId = e.target.attributes.product.nodeValue
+            history.push(`/cart/${productId}`)
+
     }
     return (
     <div className="card text-white bg-secondary mb-3" style={{maxWidth: '20rem'}}>
@@ -15,3 +20,5 @@ export default function ProductCard({description, mantraListName, header, produc
     </div>
     )
 }
+
+export default withRouter(ProductCard);
