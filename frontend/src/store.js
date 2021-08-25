@@ -9,7 +9,7 @@ import { cartReducer } from './reducers/cartReducers'
 
 // data will always come from local storage (if in local storage)
  const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
- const cartItemsFromStorage = localStorage.getItem('cartItems') ?  JSON.parse(localStorage.getItem('cartItem')) : []
+ const cartItemsFromStorage = localStorage.getItem('cartItems') ?  JSON.parse(localStorage.getItem('cartItems')) : []
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -21,7 +21,7 @@ const reducer = combineReducers({
 const middleware = [thunk]
 const initialState = {
    userLogin: { userInfo: userInfoFromStorage },
-   cart: {cartItems: cartItemsFromStorage}
+   cart: { cartItems: cartItemsFromStorage }
 }
 
 const store = createStore(
