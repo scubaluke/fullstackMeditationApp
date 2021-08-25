@@ -4,7 +4,7 @@ import Layout from './components/Layout'
 import RegisterUser from './components/RegisterUser'
 // import Shop from './pages/ShopPage'
 import Home from './pages/Home';
-// import Login from './components/Login';
+import Login from './components/Login';
 import ShopPage from './pages/ShopPage';
 import CartScreen from './pages/CartPage'
 
@@ -20,6 +20,7 @@ export default function App() {
         <Route path='/shop' component={ShopPage} />
         <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/register' component={RegisterUser} />
+        <Route path='/login' component={Login} />
       </Layout>     
     </Router>
   )
