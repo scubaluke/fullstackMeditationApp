@@ -8,7 +8,6 @@ import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/
 export default function Home({ match }) {
   const [content, setContent] = useState([])
 
-
       useEffect(() => {
           const fetchData = async () => {
             const { data } = await axios.get(`/api/content/${match.url.substring(1)}`)

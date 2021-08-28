@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npm run test",
+    "test": "jest",
     "start": "node backend/server",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
