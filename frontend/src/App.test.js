@@ -1,28 +1,18 @@
-import { render, screen } from '@testing-library/react';
 import App from './App';
-import Root from './Root'
-import NavLinks from './components/navMenu/NavLinks';
-import { mount, shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router';
-import Home from './pages/Home'
+import { mount } from 'enzyme';
 
+describe('upon start up', () => {
+    const wrapped = mount(<App  />)
 
+    test('renders App', () => {
+      expect(wrapped.find(App).length).toEqual(1)
+    })
 
-test('renders learn react link', () => {
-  // const wrapped = mount(<MemoryRouter initialEntries={['/home']} >
-  //   <App  />
-  // </MemoryRouter>
-  // )
-  // console.log(wrapped.debug());
+    test('renders BrowserRouter', () => {
+      expect(wrapped.find('BrowserRouter').length).toEqual(1)
+    }) 
 
-    const wrapped = mount(<Home match={{ url: "/home"}}  />
-  )
-  // console.log(wrapped.debug());
-  // console.log(wrapped.find('.awssld').length);
-    // console.log(wrapped.find('.awssld__wrapper').length);
-
-
-  // render(<App />);
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
+    test('renders Layout component', () => {
+    expect(wrapped.find('Layout').length).toEqual(1)
+  })
 });
