@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+    "type": "module",
+  "scripts": {
+    "test": "NODE_ENV=test jest --testTimeout=5000 --passWithNoTests",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.1.0",
+    "supertest": "^6.1.6"
+  }
+}
