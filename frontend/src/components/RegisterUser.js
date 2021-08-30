@@ -1,39 +1,62 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import { userDispatch, userSelector } from 'react-redux'
-// todo: build... Message, loader
-// import Message from 
-// import loader
-import { login } from '../actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { register } from '../actions/userActions'
+import Message from './Message'
+import Loader from './Loader'
 import FormContainer from './FormContainer'
 
 
-export default function Login({ location, history }) {
+export default function Register({ location, history }) {
     const { Group, Label, Control } = Form
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
     const [reEnterPassword, setReEnterPassword] = useState('')
-    const [errorMessage, setErrorMessage] = useState('')
+    const [message, setMessage] = useState(null)
 
-    // const redirect = location.search ? location.search.split('=')[1] : '/'
+    const dispatch = useDispatch()
 
+    const redirect = location.search ? location.search.split('=')[1] : '/'
+
+    const userRegister = useSelector(state => state.userRegister)
+    const { loading, error, userInfo } =  userRegister
+
+    useEffect(() => {
+        if(userInfo) {
+            history.push(redirect)
+        }
+      
+    }, [history, userInfo, redirect])
     
     const submitHandler = (e) => {
         e.preventDefault()
         if (password !== reEnterPassword) {
-            setErrorMessage('Passwords do not match')
+            setMessage('Passwords do not match')
             return;
         }
-
-        //Dispatch
-        console.log('submit');
+        dispatch(register(name, email, phone, password))
     }
     return (
         <FormContainer>
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
+            {error && <Message variant='danger' >{error}</Message> }
+            {error && <Message variant='danger' >{message}</Message> }
+            {loading && <Loader />}
             <Form onSubmit={submitHandler} >
+
+                 <Group controlId='name' >
+                    <Label>Name</Label>
+                    <Control 
+                        type='name' 
+                        placeholder='Enter Name' 
+                        value={name} 
+                        onChange={e => setName(e.target.value)} 
+                    ></Control>
+                </Group>
+
                 <Group controlId='email' >
                     <Label>Email Address</Label>
                     <Control 
@@ -68,21 +91,19 @@ export default function Login({ location, history }) {
                     <Label>Re-enter Password</Label>
                     <Control 
                         type='password' 
-                        placeholder='Re-enter Password' 
+                        placeholder='Confirm Password' 
                         value={reEnterPassword} 
                         onChange={e => setReEnterPassword(e.target.value)} 
                     ></Control>
                 </Group>
-                <Button type='submit' variant='primary' >Sign In</Button>
+                <Button type='submit' variant='primary' >Register</Button>
             </Form>
 
             <Row className='py-3' >
                 <Col>
-                    NewCustomer? <Link 
-                        // to={redirect ? `/register?redirect=${redirect}` : '/register'} 
-                        to={'/register'} 
-
-                        >Register</Link>
+                    Have an Account? <Link 
+                        to={redirect ? `/login?redirect=${redirect}` : '/login'} 
+                        >Login</Link>
                 </Col>
             </Row>
         </FormContainer>
