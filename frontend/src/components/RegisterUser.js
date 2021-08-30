@@ -102,7 +102,7 @@ export default function Register({ location, history }) {
             <Row className='py-3' >
                 <Col>
                     Have an Account? <Link 
-                        to={redirect ? `/login?redirect=${redirect}` : '/login'} 
+                        to={redirect  ? `/login?redirect=${redirect}` : '/login'} 
                         >Login</Link>
                 </Col>
             </Row>

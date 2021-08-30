@@ -19,6 +19,7 @@ export default function Login({ location, history }) {
     const { loading, error, userInfo } = userLogin
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
+    console.log('redirect', redirect);
 
     useEffect(() => {
         if(userInfo) {
@@ -65,7 +66,7 @@ export default function Login({ location, history }) {
             <Row className='py-3' >
                 <Col>
                     NewCustomer? <Link 
-                        to={redirect ? `/register?redirect=${redirect}` : '/register'} 
+                        to={redirect !== '/' ? `/register?redirect=${redirect}` : '/register'} 
                         // to={'/register'} 
                         >Register</Link>
                 </Col>
