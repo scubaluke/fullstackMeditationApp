@@ -6,8 +6,8 @@ import Content from '../models/contentModel.js'
 // @route GET api/content 
 // @access public
 export const getHomeContent = asyncHandler(async (req, res) => {
-      const content = await Content.findOne({ pageName: 'home'})
-        res.json(content.pageContent)
+    const content = await Content.findOne({ pageName: 'home'})
+    res.status(200).json(content.pageContent)
 })
 
 // @desc fetch page data 
