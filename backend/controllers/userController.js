@@ -85,7 +85,7 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
 export const registerUser = asyncHandler(async (req, res) => {
         const { name, email, phone, password } = req.body
         const insureEmail = email || ''
-        
+
     const userExists = await User.findOne({ email: insureEmail.toLowerCase() })
 
     if(userExists) {

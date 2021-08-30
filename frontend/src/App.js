@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Login from './components/Login';
 import ShopPage from './pages/ShopPage';
 import CartPage from './pages/CartPage'
-import ProfilePage from './pages/profilePage';
+import ProfilePage from './pages/ProfilePage';
 
 export default function App() {
   return (

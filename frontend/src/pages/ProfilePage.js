@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserDetails } from '../actions/userActions'
-import Message from './Message'
-import Loader from './Loader'
+import { getUserDetails, updateUserProfile } from '../actions/userActions'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 
 export default function ProfilePage({ location, history }) {
     const { Group, Label, Control } = Form
@@ -23,6 +23,9 @@ export default function ProfilePage({ location, history }) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } =  userLogin
 
+    const userUpdateProfile = useSelector(state => state.userUpdateProfile)
+    const { success } =  userUpdateProfile
+
     useEffect(() => {
         if(!userInfo) {
             history.push('/login')
@@ -36,7 +39,7 @@ export default function ProfilePage({ location, history }) {
                 setPhone(user.phone)
             }
         }
-    }, [dispatch, history, userInfo])
+    }, [dispatch, history, userInfo, user, success])
     
     const submitHandler = (e) => {
         e.preventDefault()
@@ -44,14 +47,16 @@ export default function ProfilePage({ location, history }) {
             setMessage('Passwords do not match')
             return;
         }
-        // todo: dispatch update profile. 
+        setMessage(null)
+        dispatch(updateUserProfile({ id: user._id, name, email, phone, password }))
     }
     return (
         <Row>
             <Col md={3} >
                 <h2>Profile</h2>
             {error && <Message variant='danger' >{error}</Message> }
-            {error && <Message variant='danger' >{message}</Message> }
+            {message && <Message variant='danger' >{message}</Message> }
+            {success && <Message variant='success' >Profile updated!</Message> }
             {loading && <Loader />}
             <Form onSubmit={submitHandler} >
 
