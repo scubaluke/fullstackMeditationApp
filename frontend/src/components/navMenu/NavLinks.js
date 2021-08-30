@@ -36,7 +36,7 @@ export default function NavLinks({handleClose}) {
                 Store
             </Link>
               {/* {userInfo && ( <Button  className='link' onClick={logoutHandler} >Log Out</Button>)} */}
-            {userInfo && ( <Link to='/home'  className='link' onClick={logoutHandler} >Log Out</Link>)}
+            {userInfo ? ( <Link to='/home'  className='link' onClick={logoutHandler} >Log Out</Link>)  : (<Link className='link' to='/login' >Log In</Link>)}
         </div>
     )
 }

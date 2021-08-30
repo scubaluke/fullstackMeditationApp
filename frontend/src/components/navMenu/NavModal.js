@@ -8,7 +8,6 @@ import './Hamburger.css'
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
-    console.log('clicked close');  
     setShow(true)
 };
 
