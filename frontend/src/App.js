@@ -6,7 +6,8 @@ import RegisterUser from './components/RegisterUser'
 import Home from './pages/Home';
 import Login from './components/Login';
 import ShopPage from './pages/ShopPage';
-import CartScreen from './pages/CartPage'
+import CartPage from './pages/CartPage'
+import ProfilePage from './pages/ProfilePage';
 
 export default function App() {
   return (
@@ -18,9 +19,10 @@ export default function App() {
         <Route path='/fear' component={Home} /> 
         <Route path='/nsfw' component={Home} />
         <Route path='/shop' component={ShopPage} />
-        <Route path='/cart/:id?' component={CartScreen} />
+        <Route path='/cart/:id?' component={CartPage} />
         <Route path='/register' component={RegisterUser} />
         <Route path='/login' component={Login} />
+        <Route path='/profile' component={ProfilePage} />
       </Layout>     
     </Router>
   )
