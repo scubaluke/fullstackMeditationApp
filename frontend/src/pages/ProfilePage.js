@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
-export default function ProfilePage({ location, history }) {
+export default function ProfilePage({ history }) {
     const { Group, Label, Control } = Form
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -25,6 +24,7 @@ export default function ProfilePage({ location, history }) {
 
     const userUpdateProfile = useSelector(state => state.userUpdateProfile)
     const { success } =  userUpdateProfile
+    console.log('success',  success);
 
     useEffect(() => {
         if(!userInfo) {
