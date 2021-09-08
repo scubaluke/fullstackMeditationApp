@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
+ import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
@@ -24,14 +25,14 @@ export default function ProfilePage({ history }) {
 
     const userUpdateProfile = useSelector(state => state.userUpdateProfile)
     const { success } =  userUpdateProfile
-    console.log('success',  success);
-
+    
     useEffect(() => {
         if(!userInfo) {
             history.push('/login')
         }
         else {
-            if(!user.name) {
+            if (!user || !user.name || success) {
+                dispatch({ type: USER_UPDATE_PROFILE_RESET })
                 dispatch(getUserDetails('profile'))
             } else {
                 setName(user.name)
@@ -41,7 +42,7 @@ export default function ProfilePage({ history }) {
         }
     }, [dispatch, history, userInfo, user, success])
     
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault()
         if (password !== reEnterPassword) {
             setMessage('Passwords do not match')
