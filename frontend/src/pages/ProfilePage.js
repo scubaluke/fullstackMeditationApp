@@ -14,6 +14,7 @@ export default function ProfilePage({ history }) {
     const [password, setPassword] = useState('')
     const [reEnterPassword, setReEnterPassword] = useState('')
     const [message, setMessage] = useState(null)
+    const [successMessage, setSuccessMessage] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -40,6 +41,8 @@ export default function ProfilePage({ history }) {
                 setPhone(user.phone)
             }
         }
+        success && setSuccessMessage(true)
+        console.log('success', success);
     }, [dispatch, history, userInfo, user, success])
     
     const submitHandler = async (e) => {
@@ -49,6 +52,7 @@ export default function ProfilePage({ history }) {
             return;
         }
         setMessage(null)
+        setSuccessMessage(false)
         dispatch(updateUserProfile({ id: user._id, name, email, phone, password }))
     }
     return (
@@ -57,7 +61,7 @@ export default function ProfilePage({ history }) {
                 <h2>Profile</h2>
             {error && <Message variant='danger' >{error}</Message> }
             {message && <Message variant='danger' >{message}</Message> }
-            {success && <Message variant='success' >Profile updated!</Message> }
+            {successMessage && <Message variant='success' >Profile updated!</Message> }
             {loading && <Loader />}
             <Form onSubmit={submitHandler} >
 
