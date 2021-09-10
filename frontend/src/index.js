@@ -9,9 +9,9 @@ import Root from './Root'
 
 ReactDOM.render(
   <Root >
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <App />
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </Root>,
   document.getElementById('root')
 );
