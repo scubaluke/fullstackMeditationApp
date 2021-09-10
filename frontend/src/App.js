@@ -6,8 +6,9 @@ import RegisterUser from './components/RegisterUser'
 import Home from './pages/Home';
 import Login from './components/Login';
 import ShopPage from './pages/ShopPage';
-import CartPage from './pages/CartPage'
+import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
+import SendToPage from './pages/SendToPage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path='/register' component={RegisterUser} />
         <Route path='/login' component={Login} />
         <Route path='/profile' component={ProfilePage} />
+        <Route path='/phone' component={SendToPage} />
       </Layout>     
     </Router>
   )
